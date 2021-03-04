@@ -1,6 +1,6 @@
 ///* // Variables stap 6. systeemvars + key functions
-var x = 200;
-var y = 200;
+let x = 200;
+let y = 200;
 
 function setup() {
 	createCanvas(400, 400);
