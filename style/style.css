@@ -10,11 +10,7 @@
 	margin: 0 auto;
 }
 
-.basic,
-.vars,
-.conditions,
-.images,
-.iteration {
+.basic {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-gap: 15px;
