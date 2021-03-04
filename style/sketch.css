@@ -7,9 +7,17 @@ body {
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  font: 14px sans-serif;
 }
 
 img, canvas {
   max-width: 100%;
   height: auto !important
+}
+
+.view-source {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.8rem;
 }
