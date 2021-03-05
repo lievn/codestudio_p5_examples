@@ -21,7 +21,6 @@ function draw() {
 
 	//tweede met rotatiefactor
 	rotate(frameCount / 100.0);
-	// 10 maal ellipse onder elkaar
 	for (let i = -15; i < 15; i++) {
 		for (let j = -15; j < 15; j++) {
 			ellipse(i * 15, j * 15, 12, 12);

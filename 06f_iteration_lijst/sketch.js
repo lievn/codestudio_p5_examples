@@ -1,8 +1,8 @@
 ///* // iteration - lijstjes bekijken we verder ook nog.
 
-var woorden = ["dit", "zijn", "allemaal", "stukjes", "lopende", "tekst"];
-var count = 0;
-var pos = 0;
+const woorden = ["dit", "zijn", "allemaal", "stukjes", "lopende", "tekst"];
+let count = 0;
+let pos = 0;
 
 function setup() {
 	createCanvas(400, 400);
@@ -21,7 +21,7 @@ function draw() {
 	}
 	count = count % woorden.length;
 	fill(0, 50, 110);
-	for (var i = 0; i < 3; i++) {
+	for (let i = 0; i < 3; i++) {
 		text(woorden[(count + i) % woorden.length], width / 2, height / 4 + i * 120);
 	}
 }
