@@ -1,29 +1,29 @@
 ///* // car stap 1
 
-var x = 200;
-var y = 200;
-var sx = 2;
-var beeld;
+let x = 200;
+let y = 200;
+let sx = 2;
+let beeld;
 
 function preload() {
-    beeld = loadImage("files/car.png");
+	beeld = loadImage("files/car.png");
 }
 
 function setup() {
-    createCanvas(400, 400);
+	createCanvas(400, 400);
 }
 
 function drive() {
-    x += sx;
-    if (x > width) {
-        x = -beeld.width;
-    }
+	x += sx;
+	if (x > width) {
+		x = -beeld.width;
+	}
 }
 
 function draw() {
-    background(255, 183, 0);
-    drive();
-    image(beeld, x, y);
+	background(255, 183, 0);
+	drive();
+	image(beeld, x, y);
 }
 
 
