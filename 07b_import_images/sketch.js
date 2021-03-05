@@ -1,10 +1,10 @@
 ///* // images - meerdere beelden laden en weergeven in sequentie.
-var imgs = [];
-var count = 0;
+let imgs = [];
+let count = 0;
 
 function preload() {
-	for (var i = 0; i < 5; i++) {
-		var img = loadImage('files/Grey_horse' + (i + 1) + '.jpg');
+	for (let i = 0; i < 5; i++) {
+		let img = loadImage('files/Grey_horse' + (i + 1) + '.jpg');
 		imgs.push(img);
 	}
 }
@@ -15,14 +15,14 @@ function setup() {
 }
 
 function draw() {
-	background(255, 44, 0);
+	background(0, 140, 230);
 
 	if (frameCount % 10 == 0) {
 		count++;
 	}
-	fill(2, 76, 104);
+	fill(255, 182, 0);
 	rect(0, 100, width, 200);
-	tint(2, 76, 104);
+	tint(255, 182, 0);
 	image(imgs[count % 5], width / 2, height / 2, 200, 150);
 }
 

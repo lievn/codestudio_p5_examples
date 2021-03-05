@@ -1,7 +1,7 @@
 ///* // images - beeld als constructie element --> transformaties.
 
-var img;
-var aantal = 10;
+let img;
+let aantal = 10;
 
 function preload() {
 	img = loadImage('files/thing2.png');
@@ -15,7 +15,7 @@ function setup() {
 function draw() {
 	background(255, 44, 0);
 	translate(width / 2, height / 2);
-	for (var i = 0; i < aantal; i++) {
+	for (let i = 0; i < aantal; i++) {
 		push();
 		rotate(radians(i * (360 / aantal)));
 		image(img, 0, img.height / 2 - mouseX, 100, 100);
