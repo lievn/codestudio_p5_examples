@@ -9,7 +9,6 @@ function setup() {
 	createCanvas(400, 400);
 	textAlign(CENTER);
 	textSize(20);
-
 }
 
 
@@ -21,7 +20,4 @@ function draw() {
 	text("btc: " + btcUS + " $", width / 2, height / 2 - 20)
 	text("btc: " + btcEUR + " €", width / 2, height / 2 + 20)
 	console.log(btcUS);
-
-
-
 }

@@ -1,17 +1,17 @@
-var element;
-var images = [];
-var ts = 1.25;
-var scalslider;
-var lineslider;
-var speedslider;
-var animationslider;
-var waveslider;
-var runner = 0;
-var bu;
+let element;
+let images = [];
+let ts = 1.25;
+let scalslider;
+let lineslider;
+let speedslider;
+let animationslider;
+let waveslider;
+let runner = 0;
+let bu;
 
 function preload() {
-	for (var i = 0; i < 3; i++) {
-		var img = loadImage('images/export-' + i + '.png');
+	for (let i = 0; i < 3; i++) {
+		let img = loadImage('images/export-' + i + '.png');
 		images.push(img);
 	}
 }
@@ -72,7 +72,7 @@ function Element(position) {
 		this.scal = scalslider.value() / 200.0;
 		this.amount = lineslider.value();
 		this.segment = 360.0 / this.amount;
-		for (var i = 0; i < this.amount; i++) {
+		for (let i = 0; i < this.amount; i++) {
 			push();
 			translate(this.x, this.y);
 			rotate(radians(i * this.segment + (frameCount / speedslider.value()) * 2.0));

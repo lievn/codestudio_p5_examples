@@ -1,5 +1,3 @@
-///* // Branching BMI.
-
 var lengte = 1.82;
 var gewicht = 120;
 var weightslider, lengthSlider;
@@ -30,14 +28,10 @@ function draw() {
 	} else {
 		fill(0, 140, 230);
 		text("prima bmi", width / 2, 210);
-
 	}
 
 	text("BMI: " + int(BMI), width / 2, 190);
-
 	fill(255);
-	text("Lengte: " + lengte * 100 + " cm -->", 20, 75);
-	text("Gewicht: " + gewicht + " kg -->", 20, 55);
+	text("Lengte: " + lengte * 100 + " cm", 20, 75);
+	text("Gewicht: " + gewicht + " kg", 20, 55);
 }
-
-//*/

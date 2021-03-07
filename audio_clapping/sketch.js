@@ -1,16 +1,16 @@
 ///* // clapping (steve reich)
 
-var seq = "x x x o x x o x o x x o";
-var steps;
-var count = -1;
-var speed = 8;
-var shift = 0;
-var repeat = 4;
-var now, canon;
-var sounds = [];
-var soundFile;
-var sf, sf2;
-var f;
+let seq = "x x x o x x o x o x x o";
+let steps;
+let count = -1;
+let speed = 8;
+let shift = 0;
+let repeat = 4;
+let now, canon;
+let sounds = [];
+let soundFile;
+let sf, sf2;
+let f;
 
 
 function preload() {
