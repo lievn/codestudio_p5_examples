@@ -19,9 +19,6 @@ function draw() {
 	}
 }
 
-
-
-
 class Worm {
 	constructor(xx, yy) {
 		this.points = 10 + int(random(40));

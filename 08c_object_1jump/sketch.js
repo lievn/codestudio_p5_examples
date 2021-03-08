@@ -1,17 +1,14 @@
-///* // jump stap 1
-
-var x = 200;
-var y;
-var w = 20;
-var h = 180;
-var j = 1;
-var amount = 2;
+let x = 200;
+let y;
+let w = 20;
+let h = 180;
+let j = 1;
+let amount = 2;
 
 function setup() {
 	createCanvas(400, 400);
 	ellipseMode(CORNER);
 	y = height - h;
-
 }
 
 function man() {
@@ -21,7 +18,6 @@ function man() {
 }
 
 function draw() {
-
 	background(2, 76, 104);
 	text("hover over jumper to make it jump", 10, 20);
 	if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
@@ -34,5 +30,3 @@ function draw() {
 	man();
 }
 
-
-//*/
