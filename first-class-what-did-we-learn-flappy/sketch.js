@@ -4,6 +4,7 @@ let vx = 2;
 let ph;
 let score = 0;
 let highscore = 0;
+let playing = true;
 
 function setup() {
 	createCanvas(400, 400);
@@ -13,6 +14,7 @@ function setup() {
 	py = 100;
 	ph = 120;
 	noStroke();
+	textAlign(CENTER);
 }
 
 function draw() {
@@ -29,7 +31,7 @@ function draw() {
 
 	// pipe
 	px -= vx;
-	if (px < 0) {
+	if (px < 0 && playing) {
 		px = width;
 		py = 100 + random(height / 2);
 		ph = random(50, 150);
@@ -48,6 +50,7 @@ function draw() {
 		}
 		noFill();
 		score = 0;
+		playing = false;
 	} else {
 		noFill();
 	}
@@ -55,8 +58,17 @@ function draw() {
 	fill(255, 205, 0);
 	text(score, 20, 20);
 	text(highscore, width - 20, 20);
+
+	if (!playing) {
+		text("game over", width / 2, height / 2);
+		text("press any key to reset", width / 2, height / 2 + 20);
+	}
 }
 
 function mousePressed() {
 	y -= 50;
+}
+
+function keyPressed() {
+	playing = true;
 }
