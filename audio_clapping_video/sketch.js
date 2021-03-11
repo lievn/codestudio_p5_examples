@@ -1,5 +1,3 @@
-///* // clapping with video
-
 let seq = "x x x o x x o x o x x o";
 let count = 0;
 let speed = 5;
@@ -59,5 +57,3 @@ function draw() {
 	text(shift + " /12", width / 2 - 12, height - 25);
 
 }
-
-//*/

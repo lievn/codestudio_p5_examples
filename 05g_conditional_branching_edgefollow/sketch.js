@@ -1,5 +1,3 @@
-///* // Branching edge follow
-
 let x = 0;
 let y = 0;
 let speed = 5;
@@ -7,44 +5,42 @@ let rectSize = 100;
 let state = 0;
 
 function setup() {
-    createCanvas(400, 400);
+	createCanvas(400, 400);
 }
 
 function draw() {
-    background(255, 44, 0);
-    if (state == 0) {
-        x = x + speed;
-        if (x > width - rectSize) {
-            x = width - rectSize;
-            state = 1;
-        }
-    } else if (state == 1) {
-        y = y + speed;
-        if (y > height - rectSize) {
-            y = height - rectSize;
-            state = 2;
-        }
-    } else if (state == 2) {
-        x = x - speed;
-        if (x < 0) {
-            x = 0;
-            state = 3;
-        }
-    } else if (state == 3) {
-        y = y - speed;
-        if (y < 0) {
-            y = 0;
-            state = 0;
-        }
-    }
+	background(255, 44, 0);
+	if (state == 0) {
+		x = x + speed;
+		if (x > width - rectSize) {
+			x = width - rectSize;
+			state = 1;
+		}
+	} else if (state == 1) {
+		y = y + speed;
+		if (y > height - rectSize) {
+			y = height - rectSize;
+			state = 2;
+		}
+	} else if (state == 2) {
+		x = x - speed;
+		if (x < 0) {
+			x = 0;
+			state = 3;
+		}
+	} else if (state == 3) {
+		y = y - speed;
+		if (y < 0) {
+			y = 0;
+			state = 0;
+		}
+	}
 
-    noStroke();
-    fill(255, 182, 0);
-    rect(x, y, rectSize, rectSize);
+	noStroke();
+	fill(255, 182, 0);
+	rect(x, y, rectSize, rectSize);
 }
 
 function mousePressed() {
-    rectSize = 20 + random(80);
+	rectSize = 20 + random(80);
 }
-
-//*/

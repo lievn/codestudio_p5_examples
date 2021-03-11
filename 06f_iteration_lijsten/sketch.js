@@ -1,5 +1,3 @@
-///* // iteration - lijstjes bekijken we verder ook nog.
-
 const letters = ["a", "b", "c", "d", "e"];
 const col = [
     [7, 118, 160],
@@ -11,22 +9,20 @@ const col = [
 let count = 0;
 
 function setup() {
-    createCanvas(400, 400);
-    textSize(100);
+	createCanvas(400, 400);
+	textSize(100);
 }
 
 function draw() {
-    background(col[count][0], col[count][1], col[count][2]);
+	background(col[count][0], col[count][1], col[count][2]);
 
-    if (frameCount % 10 == 0) {
-        count++;
-    }
-    count = count % col.length;
-    translate(50, 0);
-    for (let i = 0; i < letters.length; i++) {
-        fill(col[i][0], col[i][1], col[i][2]);
-        text(letters[i], i * 60, height / 2);
-    }
+	if (frameCount % 10 == 0) {
+		count++;
+	}
+	count = count % col.length;
+	translate(50, 0);
+	for (let i = 0; i < letters.length; i++) {
+		fill(col[i][0], col[i][1], col[i][2]);
+		text(letters[i], i * 60, height / 2);
+	}
 }
-
-//*/

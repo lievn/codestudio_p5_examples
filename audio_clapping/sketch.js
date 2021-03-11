@@ -1,5 +1,3 @@
-///* // clapping (steve reich)
-
 let seq = "x x x o x x o x o x x o";
 let steps;
 let count = -1;
@@ -61,5 +59,3 @@ function draw() {
 	text(str(canon), width / 2 + 2, height / 2 + 100);
 	text("SHIFT: " + shift, width / 2 - 25, height / 2 + 130);
 }
-
-//*/

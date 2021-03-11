@@ -1,5 +1,3 @@
-///* // clapping  too(steve reich)
-
 let seq = "x x x o x x o x o x x o";
 let steps;
 let count = -1;
@@ -73,6 +71,3 @@ function draw() {
 	}
 
 }
-
-
-//*/
