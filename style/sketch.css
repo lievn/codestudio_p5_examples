@@ -2,7 +2,8 @@ body {
   margin: 0;
   overflow: hidden;
   height: 100vh;
-  background: #f7f7f7;
+  background: #333;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,9 +11,10 @@ body {
   font: 14px sans-serif;
 }
 
-img, canvas {
+img,
+canvas {
   max-width: 100%;
-  height: auto !important
+  height: auto !important;
 }
 
 .view-source {
@@ -20,4 +22,8 @@ img, canvas {
   top: 1rem;
   right: 1rem;
   font-size: 0.8rem;
+}
+
+.view-source a {
+  color: inherit;
 }
