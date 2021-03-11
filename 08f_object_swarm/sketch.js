@@ -46,9 +46,6 @@ Element.prototype.draw = function () {
 
 //*/
 
-
-
-
 /* // Swarm stap 2
 
 
@@ -119,8 +116,6 @@ Element.prototype.draw = function () {
 };
 
 //*/
-
-
 
 /* // Swarm stap 3
 
@@ -207,8 +202,6 @@ Element.prototype.draw = function () {
 };
 
 //*/
-
-
 
 /* // Swarm stap 4
 
@@ -340,9 +333,7 @@ Element.prototype.draw = function () {
 
 //*/
 
-
 ///* // Swarm stap 5
-
 
 var elements = [];
 var ins = false;
@@ -368,7 +359,6 @@ function draw() {
         }
         b.draw();
     }
-
 }
 
 function checkmouse() {
@@ -377,7 +367,6 @@ function checkmouse() {
     }
     return true;
 }
-
 
 function check(xx, yy, x, y, w, h) {
     if (y < yy - h || y > yy + h) {
@@ -393,7 +382,6 @@ function mousePressed() {
     for (var i = 0; i < 50; i++) {
         //elements.push(new Element(random(width), random(height)));
         elements.push(new Element(mouseX + random(-100, 100), mouseY + random(-100, 100)));
-
     }
     for (var i = 0; i < 50; i++) {
         elements.splice(i, 1);
@@ -403,7 +391,6 @@ function mousePressed() {
 function angle(x, y, xx, yy) {
     return degrees(atan2(yy - y, xx - x));
 }
-
 
 var Element = function (xx, yy) {
     this.x = xx;
@@ -417,7 +404,6 @@ var Element = function (xx, yy) {
 };
 
 Element.prototype.moveToCorners = function () {
-
     this.x += this.sx;
     this.y += this.sy;
 
@@ -433,11 +419,9 @@ Element.prototype.moveToCorners = function () {
     if (this.y > height) {
         this.y = height;
     }
-
 };
 
 Element.prototype.noOverlap = function (x, y) {
-
     if (x < this.x) {
         this.mx = random(1.5);
     }
@@ -459,7 +443,6 @@ Element.prototype.noOverlap = function (x, y) {
 
     this.x += this.mx;
     this.y += this.my;
-
 };
 
 Element.prototype.moveToMouse = function () {
@@ -480,11 +463,9 @@ Element.prototype.draw = function () {
         this.moveToMouse();
     }
     ellipse(this.x, this.y, this.s, this.s);
-
 };
 
 //*/
-
 
 /* // Swarm stap 6 _ with sound
 

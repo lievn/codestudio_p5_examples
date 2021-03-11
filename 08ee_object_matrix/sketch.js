@@ -1,7 +1,6 @@
 ///* // falling stap 1
 // font: http://www.norfok.com/
 
-
 var pieces = [];
 var matrixCodetxt = "abcdefghijklmnopqrstuvwxyz";
 var matrixCode = matrixCodetxt.split("");
@@ -40,11 +39,10 @@ function mousePressed() {
 var matrixPiece = function (xx, yy) {
     this.x = xx;
     this.y = yy;
-    this.ys = random(.5, 4);
+    this.ys = random(0.5, 4);
     this.locations = [];
     this.max = int(random(5, 20));
     this.select = int(random(matrixCode.length));
-
 };
 
 matrixPiece.prototype.move = function () {

@@ -1,12 +1,12 @@
 ///* // Color HSB
 
 function setup() {
-	createCanvas(400, 400);
-	colorMode(HSB);
+    createCanvas(400, 400);
+    colorMode(HSB);
 }
 
 function draw() {
-	background(30, mouseX, mouseY);
+    background(30, mouseX, mouseY);
 }
 
 //*/

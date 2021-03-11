@@ -38,7 +38,6 @@ function face() {
     endShape(CLOSE);
 }
 
-
 function draw() {
     background(255, 44, 0);
     translate(width / 2 - mouseX, height / 2 - mouseY);
