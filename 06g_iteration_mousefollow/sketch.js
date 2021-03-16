@@ -1,31 +1,31 @@
+// Create a trail that follows the mouse
+// This creates a list with the last positions and draws them behind the mouse
+
 let xpos = [];
 let ypos = [];
-let amount = 30;
+let maxAmount = 30;
 
 function setup() {
     createCanvas(400, 400);
-    for (var i = 0; i < amount; i++) {
-        xpos[i] = 0;
-        ypos[i] = 0;
-    }
 }
 
 function draw() {
     background(244, 183, 0);
 
-    for (let i = 0; i < xpos.length - 1; i++) {
-        xpos[i] = xpos[i + 1];
-        ypos[i] = ypos[i + 1];
+    // Add the current mouse position to the end of the list.
+    xpos.push(mouseX);
+    ypos.push(mouseY);
+
+    // If needed, remove items from the beginning of the list.
+    while (xpos.length > maxAmount) {
+        xpos.shift();
+        ypos.shift();
     }
 
-    // Nieuwe locatie
-    xpos[xpos.length - 1] = int(mouseX);
-    ypos[ypos.length - 1] = int(mouseY);
-
-    // Teken alles.
+    // Draw the items in the list
     for (let i = 0; i < xpos.length; i++) {
         noStroke();
         fill(0, 140, 230, 255 - i * 5);
-        ellipse(xpos[i], ypos[i], i * 3, i * 3);
+        circle(xpos[i], ypos[i], i * 3);
     }
 }
