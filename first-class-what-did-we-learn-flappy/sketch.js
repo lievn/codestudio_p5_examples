@@ -49,9 +49,6 @@ function draw() {
         // Reset acceleration
         bird_ay = 0;
 
-        // textAlign(LEFT);
-        // text(`Y ${bird_y.toFixed(2)} VY ${bird_y.toFixed(2)} AY ${bird_ay.toFixed(2)}`, 20, height - 20);
-
         // Pipe Movement
         // This is actually fake:
         // We move the pipe towards the bird, not the other way around.
@@ -74,7 +71,6 @@ function draw() {
     // Draw the pipe
     // This consists of two segments: one from the top of the screen (0) to pipe_y,
     // one from pipe_y + pipe_height to the bottom of the screen (we actually draw lower, until height).
-
     fill(2, 76, 104);
     stroke(255, 205, 0);
     rect(pipe_x, 0, pipe_width, pipe_y);
@@ -94,22 +90,25 @@ function draw() {
             rect(0, 0, width, height);
         }
     }
+    // Did we fall off the screen?
     if (bird_y > height) {
         gameOver = true;
     }
 
+    // Show the current score and the high score.
+    fill(255, 205, 0);
+    textAlign(LEFT);
+    text("Score: " + score, 20, 20);
+    textAlign(RIGHT);
+    text("High Score: " + highscore, width - 20, 20);
+
+    // If we're game over, set playing to false and update the highscore.
     if (gameOver) {
         playing = false;
         if (score > highscore) {
             highscore = score;
         }
     }
-
-    fill(255, 205, 0);
-    textAlign(LEFT);
-    text("Score: " + score, 20, 20);
-    textAlign(RIGHT);
-    text("High Score: " + highscore, width - 20, 20);
 
     if (!playing) {
         textAlign(CENTER);
