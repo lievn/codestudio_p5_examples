@@ -15,10 +15,9 @@ function setup() {
     createCanvas(400, 400);
     reset();
     playing = false;
-
-    // noStroke();
 }
 
+// This resets all variables for a new game
 function reset() {
     score = 0;
     bird_x = width / 4;
@@ -26,8 +25,8 @@ function reset() {
     bird_vx = 2.0;
     bird_vy = 0.0;
     bird_ay = 0.0;
-    // The pipe starts just offscreen
-    pipe_x = width;
+    // The pipe starts offscreen
+    pipe_x = width + 100;
     pipe_y = 100;
     pipe_width = 30;
     pipe_height = 120;
@@ -41,22 +40,26 @@ function draw() {
         // Bird Movement
 
         // Calculate acceleration
-        bird_ay += 0.4; // Add gravity
+        bird_ay += 0.3; // Add gravity
         // Add acceleration to velocity
         bird_vy += bird_ay;
+        bird_vy = constrain(bird_vy, -5, 5);
         // Add velocity to location
         bird_y += bird_vy;
         // Reset acceleration
         bird_ay = 0;
 
+        // textAlign(LEFT);
+        // text(`Y ${bird_y.toFixed(2)} VY ${bird_y.toFixed(2)} AY ${bird_ay.toFixed(2)}`, 20, height - 20);
+
         // Pipe Movement
-        // This is actually fake,
-        // we move the pipe towards the bird, not the other way around.
+        // This is actually fake:
+        // We move the pipe towards the bird, not the other way around.
         pipe_x -= bird_vx;
         if (pipe_x < 0 && playing) {
             pipe_x = width;
             pipe_y = 100 + random(height / 2);
-            pipe_height = random(50, 150);
+            pipe_height = random(70, 120);
         }
     }
 
@@ -69,12 +72,12 @@ function draw() {
     rect(bird_x, bird_y, 10, 10);
 
     // Draw the pipe
-    // This consists of two segments: one from the top of the screen to pipe_y,
-    // one from pipe_y + pipe_height to the bottom of the screen.
+    // This consists of two segments: one from the top of the screen (0) to pipe_y,
+    // one from pipe_y + pipe_height to the bottom of the screen (we actually draw lower, until height).
 
     fill(2, 76, 104);
     stroke(255, 205, 0);
-    rect(pipe_x, 0, pipe_width, pipe_height);
+    rect(pipe_x, 0, pipe_width, pipe_y);
     rect(pipe_x, pipe_y + pipe_height, pipe_width, height);
 
     // Check for game over / scoring
@@ -84,35 +87,23 @@ function draw() {
     if (bird_x >= pipe_x && bird_x <= pipe_x + pipe_width) {
         if (bird_y < pipe_y || bird_y > pipe_y + pipe_height) {
             gameOver = true;
+        } else if (bird_x - bird_vx <= pipe_x && bird_x > pipe_x) {
+            // Did we just pass the pipe in this frame?
+            score += 1;
+            fill(255, 255, 255, 0.2);
+            rect(0, 0, width, height);
         }
     }
     if (bird_y > height) {
         gameOver = true;
     }
 
-    if (!gameOver && playing) {
-        // fill(255, 205, 0);
-        score += 1;
-    } else {
+    if (gameOver) {
         playing = false;
         if (score > highscore) {
             highscore = score;
         }
     }
-    // if (x > px && y > py && y < py + ph && x < px + vx + 1) {
-    //     fill(255, 205, 0);
-    //     score += 1;
-    // } else if (x > px && (y > py + ph || y < py) && x < px + vx + 1) {
-    //     if (score > highscore) {
-    //         highscore = score;
-    //     }
-    //     noFill();
-    //     score = 0;
-    //     playing = false;
-    // } else {
-    //     noFill();
-    // }
-    // rect(px, py, 30, ph);
 
     fill(255, 205, 0);
     textAlign(LEFT);
@@ -128,8 +119,7 @@ function draw() {
 }
 
 function mousePressed() {
-    // y -= 50;
-    bird_ay -= 10;
+    bird_ay -= 20;
     if (!playing) {
         reset();
     }
