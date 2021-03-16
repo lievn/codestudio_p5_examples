@@ -4,7 +4,7 @@ let bird_vx, bird_vy;
 let bird_ax, bird_ay;
 
 // Pipe data
-let pipe_x, pipe_y, pipe_width, pipe_height;
+let pipe_x, pipe_y, pipe_width, pipe_gap;
 
 // Score
 let score = 0;
@@ -29,7 +29,7 @@ function reset() {
     pipe_x = width + 100;
     pipe_y = 100;
     pipe_width = 30;
-    pipe_height = 120;
+    pipe_gap = 120;
     playing = true;
 }
 
@@ -56,7 +56,7 @@ function draw() {
         if (pipe_x < 0 && playing) {
             pipe_x = width;
             pipe_y = 100 + random(height / 2);
-            pipe_height = random(70, 120);
+            pipe_gap = random(70, 120);
         }
     }
 
@@ -70,18 +70,18 @@ function draw() {
 
     // Draw the pipe
     // This consists of two segments: one from the top of the screen (0) to pipe_y,
-    // one from pipe_y + pipe_height to the bottom of the screen (we actually draw lower, until height).
+    // one from pipe_y + pipe_gap to the bottom of the screen (we actually draw lower, until height).
     fill(2, 76, 104);
     stroke(255, 205, 0);
     rect(pipe_x, 0, pipe_width, pipe_y);
-    rect(pipe_x, pipe_y + pipe_height, pipe_width, height);
+    rect(pipe_x, pipe_y + pipe_gap, pipe_width, height);
 
     // Check for game over / scoring
 
     let gameOver = false;
     // Check that our X position matches: are we at the same column than the pipe?
     if (bird_x >= pipe_x && bird_x <= pipe_x + pipe_width) {
-        if (bird_y < pipe_y || bird_y > pipe_y + pipe_height) {
+        if (bird_y < pipe_y || bird_y > pipe_y + pipe_gap) {
             gameOver = true;
         } else if (bird_x - bird_vx <= pipe_x && bird_x > pipe_x) {
             // Did we just pass the pipe in this frame?
